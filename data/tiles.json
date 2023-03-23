@@ -1,0 +1,100 @@
+{
+    "floor": {
+        "bgimg": "floor1",
+        "fgimg": "floor1",
+        "travType": "walk",
+        "destroy":{},
+        "opaque": false
+    },
+    "wall": {
+        "bgimg": "floor1",
+        "fgimg": "wall1",
+        "travType": "none",
+        "destroy": {},
+        "opaque": true
+    },
+    "pit": {
+        "bgimg": "pit",
+        "fgimg": "pit",
+        "travType": "fly",
+        "destroy":{},
+        "opaque": false
+    },
+    "thin vines": {
+        "bgimg": "floor1",
+        "fgimg": "thinvines",
+        "travType": "fire",
+        "destroy":{"fire":"floor", "slash":"thinner vines"},
+        "opaque": true
+    },
+    "thinner vines": {
+        "bgimg": "floor1",
+        "fgimg": "thinnervines",
+        "travType": "fire",
+        "destroy":{"fire":"floor", "slash":"thinnest vines"},
+        "opaque": true
+    },
+    "thinnest vines": {
+        "bgimg": "floor1",
+        "fgimg": "thinnestvines",
+        "travType": "fire",
+        "destroy":{"fire":"floor", "slash":"floor"},
+        "opaque": true
+    },
+    "thick vines": {
+        "bgimg": "floor1",
+        "fgimg": "thickvines",
+        "travType": "ice",
+        "destroy":{"ice":"frozen vines"},
+        "opaque": true
+    },
+    "frozen vines": {
+        "bgimg": "floor1",
+        "fgimg": "frozenthickvines",
+        "travType": "none",
+        "destroy":{"slash":"floor"},
+        "opaque": true
+    },
+    "dry vines": {
+        "bgimg": "floor1",
+        "fgimg": "dryvines",
+        "travType": "fire",
+        "destroy":{"fire":"floor", "slash":"thinned dry vines"},
+        "opaque": true
+    },
+    "thinned dry vines": {
+        "bgimg": "floor1",
+        "fgimg": "thinneddryvines",
+        "travType": "fire",
+        "destroy":{"fire":"floor"},
+        "opaque": false
+    },
+    "lava": {
+        "bgimg": "lava",
+        "fgimg": "lava",
+        "travType": "fly",
+        "destroy":{"ice": "frozen lava"},
+        "opaque": false
+    },
+    "frozen lava": {
+        "bgimg": "lava",
+        "fgimg": "frozen",
+        "travType": "walk",
+        "destroy":{},
+        "opaque": false
+    },
+    "illusory wall": {
+        "bgimg": "floor1",
+        "fgimg": "wall1",
+        "travType": "none",
+        "destroy":{"shadow":"floor"},
+        "opaque": true
+    },
+    "exit": {
+        "bgimg": "floor1",
+        "fgimg": "exit",
+        "travType": "walk",
+        "destroy":{},
+        "opaque": false
+    }
+}

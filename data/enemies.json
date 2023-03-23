@@ -1,0 +1,1142 @@
+{
+    "shadow dagger guardian": {
+        "id": "shadow dagger guardian",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 2.2,
+        "acc": 0.8,
+        "patrol": [[17, 23]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearPlayer"],
+                "tos": ["attack"],
+                "hearing": 4
+            },
+            "attack": {
+                "fns": ["hearNorSee"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[679.999, 919.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "teleport tome guardian": {
+        "id": "teleport tome guardian",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 3,
+        "acc": 0.8,
+        "patrol": [[74, 11]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hasItem"],
+                "tos": ["attack"],
+                "item": "teleport tome"
+            },
+            "attack": {
+                "fns": ["hearNorSee"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 60,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[2919.999, 479.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "ice tome guadian": {
+        "id": "ice tome guadian",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.8,
+        "acc": 0.3,
+        "patrol": [[76, 32], [76, 25], [76, 34], [75, 38], [75, 47], [79, 51], [75, 46]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearAndSee"],
+                "tos":["attack"],
+                "hearing": 8
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":100
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 16,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[3019.9999, 1579.9999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "lava patrol": {
+        "id": "lava patrol",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.6,
+        "acc": 0.25,
+        "patrol": [[112, 59], [110, 54], [114, 45], [109, 35], [115, 36], [110, 53]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearAndSee"],
+                "tos":["attack"],
+                "hearing": 10
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":40
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 20,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk", "fly"],
+        "pos":[4479.999, 2359.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "corridor 1": {
+        "id": "corridor 1",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[124, 67], [129, 67]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5179.999, 2699.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "corridor 2": {
+        "id": "corridor 2",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[133, 63], [129, 63]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5299.999, 2539.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "corridor 3": {
+        "id": "corridor 3",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[125, 58], [130, 58]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5079.999, 2359.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "corridor 4": {
+        "id": "corridor 4",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[133, 54], [129, 54]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5279.999, 2199.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "corridor 5": {
+        "id": "corridor 5",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[126, 49], [129, 49]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5079.999, 1999.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "corridor 6": {
+        "id": "corridor 6",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 2,
+        "acc": 0.4,
+        "patrol": [[131, 47], [129, 47]],
+        "fsm": {
+            "patrol": {
+                "fns":[],
+                "tos":[]
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":20
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[5239.999, 1879.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "dancing 1": {
+        "id": "dancing 1",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 40000,
+        "speed": 1.9,
+        "acc": 0.25,
+        "patrol": [[109, 79], [104, 82], [102, 99], [112, 102], [115, 94], [103, 85]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearAndSee"],
+                "tos":["attack"],
+                "hearing": 8
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 12,
+                "time": 600,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[4379.999, 3179.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "dancing 2": {
+        "id": "dancing 1",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 40000,
+        "speed": 1.9,
+        "acc": 0.25,
+        "patrol": [[98, 111], [102, 115], [108, 105], [112, 96], [104, 92], [97, 96], [106, 101], [105, 111]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearAndSee"],
+                "tos":["attack"],
+                "hearing": 8
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 12,
+                "time": 600,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[3939.999, 4459.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "maze sleeping 1": {
+        "id": "maze sleeping 1",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.8,
+        "acc": 0.4,
+        "patrol": [[95, 103]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 5
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "time": 3000,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[3799.999, 4119.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze sleeping 2": {
+        "id": "maze sleeping 2",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.5,
+        "acc": 0.3,
+        "patrol": [[93, 87]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 5
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "time": 3000,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[3719.999, 3479.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze sleeping 3": {
+        "id": "maze sleeping 3",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.6,
+        "acc": 0.3,
+        "patrol": [[70, 80]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 5
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "time": 3000,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[2799.999, 3199.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze sleeping 4": {
+        "id": "maze sleeping 4",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1,
+        "acc": 0.3,
+        "patrol": [[50, 75]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 5
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "time": 3000,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1999.999, 2999.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze sleeping 5": {
+        "id": "maze sleeping 4",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 0.5,
+        "limit": 25500,
+        "speed": 1.4,
+        "acc": 0.3,
+        "patrol": [[44, 83]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 5
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "time": 3000,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1759.999, 3359.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze patrol 1": {
+        "id": "maze patrol 1",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 1,
+        "acc": 0.2,
+        "patrol": [[72, 98], [76, 98], [77, 89], [72, 89], [71, 90], [69, 93], [65, 93], [62, 95], [63, 99], [70, 99]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing":5
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":60
+            },
+            "attack": {
+                "fns": ["noHearPlayer"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["attack"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[2559.999, 3959.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "maze patrol 2": {
+        "id": "maze patrol 2",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 1,
+        "acc": 0.2,
+        "patrol": [[56, 90], [47, 90], [46, 91], [46, 96], [53, 96], [55, 98], [58, 96], [58, 92]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing":5
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":60
+            },
+            "attack": {
+                "fns": ["noHearPlayer"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 8,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["attack"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1839.999, 3839.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "secret patrol": {
+        "id": "secret patrol",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 1.5,
+        "acc": 0.25,
+        "patrol": [[51, 52], [56, 58], [61, 59], [65, 56], [61, 59], [56, 58]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing":4
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["noHearPlayer"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 10,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["attack"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[2039.999, 2079.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "secret sleeping": {
+        "id": "secret sleeping",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 2,
+        "limit": 25500,
+        "speed": 1.8,
+        "acc": 0.3,
+        "patrol": [[83, 67]],
+        "fsm": {
+            "sleep": {
+                "fns": ["hearPlayer", "hasItem"],
+                "tos": ["stalk", "attack"],
+                "item": "super lamp",
+                "hearing": 10
+            },
+            "stalk": {
+                "fns": ["seePlayer", "hasItem"],
+                "tos": ["sleep", "attack"],
+                "item": "super lamp",
+                "cost": "default",
+                "planTime": 60
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 18,
+                "time": 3000,
+                "planTime": 60
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "retreat": {
+                "fns":["hasRetreated", "timerZero"],
+                "tos":["sleep", "stalk"],
+                "cost":"default",
+                "time": 150
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[3319.999, 2679.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "final patrol": {
+        "id": "secret patrol",
+        "img": "smallenemy",
+        "state": "patrol",
+        "damage": 2,
+        "limit": 25500,
+        "speed": 1.5,
+        "acc": 0.25,
+        "patrol": [[21, 59], [13, 66], [12, 72], [17, 62]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing":12
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["noHearPlayer"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 20,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["attack"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[839.999, 2359.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "final sleeping": {
+        "id": "final sleeping",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 1,
+        "limit": 25500,
+        "speed": 1,
+        "acc": 0.3,
+        "patrol": [[26, 75]],
+        "fsm": {
+            "sleep": {
+                "fns": ["hearPlayer"],
+                "tos": ["attack"],
+                "hearing": 4
+            },
+            "attack": {
+                "fns": ["hearNorSee", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 10,
+                "time": 3000,
+                "planTime": 60
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "retreat": {
+                "fns":["hasRetreated", "timerZero"],
+                "tos":["sleep", "stalk"],
+                "cost":"default",
+                "time": 150
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1039.999, 2999.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "final dance 1": {
+        "id": "final dance 1",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1.8,
+        "limit": 50000,
+        "speed": 1.8,
+        "acc": 0.25,
+        "patrol": [[6, 94], [10, 104], [16, 99], [16, 94], [11, 90]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing": 5
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["noHearPlayer", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 10,
+                "time": 600,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk", "fly"],
+        "pos":[259.999, 3779.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "final dance 2": {
+        "id": "final dance 2",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1.8,
+        "limit": 50000,
+        "speed": 1.8,
+        "acc": 0.25,
+        "patrol": [[12, 103], [16, 99], [16, 93], [11, 89], [6, 94], [7, 100]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing": 5
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["noHearPlayer", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 10,
+                "time": 600,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk", "fly"],
+        "pos":[499.999, 4139.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "final dance 3": {
+        "id": "final dance 3",
+        "img": "largeenemy",
+        "state": "patrol",
+        "damage": 1.8,
+        "limit": 50000,
+        "speed": 1.8,
+        "acc": 0.25,
+        "patrol": [[16, 93], [12, 90], [7, 92], [6, 100], [11, 104], [16, 99]],
+        "fsm": {
+            "patrol": {
+                "fns":["hearPlayer"],
+                "tos":["attack"],
+                "hearing": 5
+            },
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["retreat"],
+                "time":30
+            },
+            "attack": {
+                "fns": ["noHearPlayer", "timerZero"],
+                "tos": ["retreat", "retreat"],
+                "cost": "none",
+                "hearing": 10,
+                "time": 600,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["patrol"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk", "fly"],
+        "pos":[659.999, 3739.999],
+        "w":90,
+        "h":90,
+        "r":45,
+        "coll":"circle"
+    },
+    "final chase 1": {
+        "id": "final chase 1",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 2.5,
+        "limit": 50000,
+        "speed": 2.5,
+        "acc": 0.5,
+        "patrol": [[30, 88]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":10
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 10
+            },
+            "attack": {
+                "fns": ["hearNorSee"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 15,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1199.999, 3519.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "final chase 2": {
+        "id": "final chase 2",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 2.5,
+        "limit": 50000,
+        "speed": 2.5,
+        "acc": 0.5,
+        "patrol": [[23, 96]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":10
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 10
+            },
+            "attack": {
+                "fns": ["hearNorSee"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 15,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[919.999, 3839.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    },
+    "final chase 3": {
+        "id": "final chase 3",
+        "img": "smallenemy",
+        "state": "sleep",
+        "damage": 2.5,
+        "limit": 50000,
+        "speed": 2.5,
+        "acc": 0.5,
+        "patrol": [[33, 101]],
+        "fsm": {
+            "stunned": {
+                "fns":["timerZero"],
+                "tos":["attack"],
+                "time":10
+            },
+            "sleep": {
+                "fns": ["hearAndSee"],
+                "tos": ["attack"],
+                "hearing": 10
+            },
+            "attack": {
+                "fns": ["hearNorSee"],
+                "tos": ["retreat"],
+                "cost": "none",
+                "hearing": 15,
+                "time": 300,
+                "planTime": 60
+            },
+            "retreat": {
+                "fns":["hasRetreated"],
+                "tos":["sleep"],
+                "cost":"default"
+            }
+        },
+        "travTypes": ["walk"],
+        "pos":[1319.999, 4039.999],
+        "w":50,
+        "h":50,
+        "r":25,
+        "coll":"circle"
+    }
+}

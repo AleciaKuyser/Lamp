@@ -1,0 +1,113 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family:'Times New Roman', Times, serif;
+}
+
+canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+button {
+  background-color: #330a0acc;
+  border: 10pt;
+  border-color: red;
+  color: rgb(165, 59, 59);
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 5vw;
+}
+
+img {
+  object-fit: contain;
+  object-position: 50%;
+  image-rendering: pixelated;
+}
+
+.dim {
+  filter: grayscale(0.7) darken(0.3);
+}
+
+.scroll-container {
+  overflow-y: scroll;
+  position: absolute;
+  /* top: 0;
+  left: 60vw; */
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh;
+  width: 30vw; */
+}
+
+.item-container {
+  position: relative!important;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 5px;
+}
+
+.item-container > *, .item-container > * > * {
+  position: relative!important;
+  font-size: 2.8vw;
+}
+
+.item-container > div {
+  padding-left: 10px;
+}
+
+.diffLabel {
+  text-align: center;
+  font-weight: bold;
+  color:rgb(196, 128, 128);
+  font-size: 18pt;
+}
+
+.difficulty {
+  text-align: center;
+  background-color: #302121b2;
+  color:rgb(196, 128, 128);
+  font-size: 16pt;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  display: none
+}
+
+.lighting {
+  text-align: center;
+  vertical-align: middle;
+  color:rgb(196, 128, 128);
+  font-size: 16pt;
+  padding: 4px;
+  margin: 4px;
+  background-color: #1b141479;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #24000031;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 245, 245);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+}
